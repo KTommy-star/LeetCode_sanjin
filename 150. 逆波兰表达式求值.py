@@ -43,7 +43,7 @@ class Solution(object):
         """
         stack=[]
         for token in tokens:
-            if token.lstrip('-').isdigit():
+            if token.lstrip('-').isdigit():#判断是否为数字，包含负数的判定
                 stack.append(int(token))
             else:
                 #运算数顺序（逆波兰表达式中，后弹出的是第一个操作数）
@@ -56,7 +56,7 @@ class Solution(object):
                 elif token == '*':
                     result = operate1 * operate2
                 elif token == '/':
-                    # 修正5：处理除法的取整规则（向零取整，符合题目要求）
+                    # 处理除法的取整规则（向零取整，符合题目要求）
                     result = int(float(operate1) / operate2)
                 stack.append(result)
         return int(stack.pop())#栈中存在的最后一个就是结果
