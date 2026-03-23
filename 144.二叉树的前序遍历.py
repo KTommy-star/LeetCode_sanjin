@@ -44,4 +44,24 @@ class Solution(object):
             if node.left:
                 stack.append(node.left)
         return result
+    #第三种，统一的迭代法
+    def preordertraversal_unified(self,root):
+        result=[]
+        st=[]
+        if root:
+            st.append(root)
+        while st:
+            node = st.pop()#看是待处理还是已完成
+            if node != None:
+                if node.right:
+                    st.append(node.right)
+                if node.left:
+                    st.append(node.left)
+                st.append(node)
+                st.append(None)#放一个空指针来标记完成
+            else:
+                node=st.pop()# 标记为完成时，取出节点收集值
+                result.append(node.val)
+        return result
+
 

@@ -44,3 +44,22 @@ class Solution(object):
             if node.right:
                 stack.append(node.right)
         return result[::-1]#后序遍历的结果是根节点在最后，所以需要反转一下
+
+    def postorderTraversal_unified(self, root):
+        result=[]
+        st=[]
+        if root:
+            st.append(root)
+        while st:
+            node=st.pop()
+            if node != None:
+                st.append(node)
+                st.append(None)
+                if node.right:
+                    st.append(node.right)
+                if node.left:
+                    st.append(node.left)
+            else:
+                node=st.pop()
+                result.append(node.val)
+        return result
