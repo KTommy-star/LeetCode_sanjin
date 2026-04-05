@@ -24,6 +24,8 @@ class Solution(object):
         :type root2: Optional[TreeNode]
         :rtype: Optional[TreeNode]
         """
+        #核心思路就是先写出特殊情况的判定，然后正常情况就是两个节点相加。
+        #再递归左右子树就可以了
         if not root1 and not root2:
             return None
         if not root1:
