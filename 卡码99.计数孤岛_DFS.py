@@ -24,7 +24,7 @@ def dfs(grid,visited,x,y):
     for i ,j in directions:
         next_x=x+i
         next_y=y+j
-        if next_x<0 or next_x>=len(grid) or next_y<0 or next_y > len(grid[0]):
+        if next_x<0 or next_x>=len(grid) or next_y<0 or next_y > len(grid[0]):#len(grid)是一共有多少行,len(grid[0])是一共有多少列
             continue
         if not visited[next_x][next_y] and grid[next_x][next_y]==1:
             visited[next_x][next_y]=True
